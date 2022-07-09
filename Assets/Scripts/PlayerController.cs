@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 3f;
+    public float moveSpeed = 10f;
     public GameObject crossHair;
     void Start()
     {
