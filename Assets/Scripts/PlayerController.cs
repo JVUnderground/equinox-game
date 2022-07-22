@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 10f;
     public GameObject crossHair;
+
+    public float health = 30;
     void Start()
     {
         Cursor.visible = false;
