@@ -13,9 +13,8 @@ public class EnemyManager : MonoBehaviour {
 
     Vector3 randomVector() {
 
-        int direction = Random.Range(1, 4);
+        int direction = Random.Range(1, 5);
         float xMax=0, xMin=0, yMax=0, yMin=0;
-        print(direction);
 
         if (direction == 1) {
             xMax = player.transform.position.x + 4.5f;
@@ -39,8 +38,8 @@ public class EnemyManager : MonoBehaviour {
         }
 
         if (direction == 4) {
-            xMax = player.transform.position.x - 4.5f;
-            xMin = player.transform.position.x - 6.5f;
+            xMax = player.transform.position.x - 6.5f;
+            xMin = player.transform.position.x - 4.5f;
             yMax = player.transform.position.y + 2.5f;
             yMin = player.transform.position.y - 2.5f;
         }
