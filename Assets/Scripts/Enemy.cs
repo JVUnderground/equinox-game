@@ -10,12 +10,10 @@ public class Enemy : MonoBehaviour {
     public Image healthBar;
     private float health;
     private Transform target;
-    private Rigidbody2D rb;
 
     void Start() {
         health = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
     }
     
     public void damage(float damage) {
