@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour {
 
     public GameObject enemyPrefab;
-    private float nextActionTime = 0.0f;
     public float period = 1.0f;
-    public GameObject player;
-    
+
+    GameObject player;
+    float nextActionTime = 0.0f;
 
     Vector3 randomVector() {
 
@@ -52,13 +52,16 @@ public class EnemyManager : MonoBehaviour {
     }
 
     void Start() {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update () {
-        if (Time.time > nextActionTime ) {
+        if (player && Time.time > nextActionTime) {
             nextActionTime += period;
             Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+        }
+        else if (player == null) {
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 }
