@@ -15,7 +15,6 @@ public class EnemyManager : MonoBehaviour {
 
         int direction = Random.Range(1, 4);
         float xMax=0, xMin=0, yMax=0, yMin=0;
-        print(direction);
 
         if (direction == 1) {
             xMax = player.transform.position.x + 4.5f;
@@ -58,7 +57,8 @@ public class EnemyManager : MonoBehaviour {
     void Update () {
         if (player && Time.time > nextActionTime) {
             nextActionTime += period;
-            Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+            spawnedEnemy.GetComponent<Enemy>().setTarget(player);
         }
         else if (player == null) {
             player = GameObject.FindGameObjectWithTag("Player");

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public float moveSpeed = 10f;
     public GameObject crossHair;
-
-    public float health = 30;
     void Start()
     {
         Cursor.visible = false;
@@ -26,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        float moveSpeed = GetComponent<Player>().moveSpeed;
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.
 
