@@ -12,12 +12,13 @@ public class HealthBarController : MonoBehaviour {
     void Start() {
         healthBar = GetComponent<Image>();
         target = transform.parent.parent.parent.gameObject;
-        Debug.Log(target);
     }
 
     // Update is called once per frame
     void Update() {
-        IHasHealth state = (IHasHealth) target.GetComponent(typeof(IHasHealth));
-        healthBar.fillAmount = state.Health() / state.MaxHealth();
+        IHasHealth state = (IHasHealth)target.GetComponent(typeof(IHasHealth));
+        if (state != null) {
+            healthBar.fillAmount = state.Health() / state.MaxHealth();
+        }
     }
 }

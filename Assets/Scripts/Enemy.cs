@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour, IHasHealth {
+public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
 
     public float maxHealth = 30f;
     public float moveSpeed = 1f;
     public float attack = 1f;
+    public GameObject expPrefab;
     private float health;
     private Transform target;
 
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour, IHasHealth {
     public void damage(float damage) {
         health -= damage;
         if (health <= 0) {
+            Instantiate(expPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -50,5 +52,13 @@ public class Enemy : MonoBehaviour, IHasHealth {
 
     void IHasHealth.MaxHealth(float maxHealth) {
         this.maxHealth = maxHealth;
+    }
+
+    public void Damage(float amount) {
+        health -= amount;
+        if (health <= 0) {
+            Instantiate(expPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

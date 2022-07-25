@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
 {
 
     public float moveSpeed;
+    public int experience = 0;
     public float health;
     public float maxHealth;
 
@@ -25,7 +26,6 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
     void kill() {
         // Destroy(gameObject);
     }
-
     public void Damage(float amount) {
         health -= amount;
 
@@ -51,5 +51,9 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
         if (this.health > maxHealth) {
             this.health = maxHealth; 
         }
+    }
+
+    public void AddExperience(int amount) {
+        experience += amount;
     }
 }
