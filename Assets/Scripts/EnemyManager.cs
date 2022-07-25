@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour {
 
     public GameObject enemyPrefab;
-    private float nextActionTime = 0.0f;
     public float period = 1.0f;
-    public GameObject player;
-    
+
+    GameObject player;
+    float nextActionTime = 0.0f;
 
     Vector3 randomVector() {
 
-        int direction = Random.Range(1, 5);
+        int direction = Random.Range(1, 4);
         float xMax=0, xMin=0, yMax=0, yMin=0;
 
         if (direction == 1) {
@@ -38,8 +38,8 @@ public class EnemyManager : MonoBehaviour {
         }
 
         if (direction == 4) {
-            xMax = player.transform.position.x - 6.5f;
-            xMin = player.transform.position.x - 4.5f;
+            xMax = player.transform.position.x - 4.5f;
+            xMin = player.transform.position.x - 6.5f;
             yMax = player.transform.position.y + 2.5f;
             yMin = player.transform.position.y - 2.5f;
         }
@@ -51,13 +51,17 @@ public class EnemyManager : MonoBehaviour {
     }
 
     void Start() {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update () {
-        if (Time.time > nextActionTime ) {
+        if (player && Time.time > nextActionTime) {
             nextActionTime += period;
-            Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+            spawnedEnemy.GetComponent<Enemy>().setTarget(player);
+        }
+        else if (player == null) {
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 }
