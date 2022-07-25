@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5737388992237354469}
   - component: {fileID: 5737388992237354490}
   - component: {fileID: 5737388992237354491}
-  - component: {fileID: 5737388992237354488}
   - component: {fileID: 5737388992237354489}
+  - component: {fileID: 5737388992237354488}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -104,21 +104,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &5737388992237354488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5737388992237354494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ad61329028e484c85d2ceb49d4d5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 30
-  moveSpeed: 0.75
-  attack: 1
 --- !u!50 &5737388992237354489
 Rigidbody2D:
   serializedVersion: 4
@@ -140,6 +125,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5737388992237354488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737388992237354494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ad61329028e484c85d2ceb49d4d5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  moveSpeed: 0.75
+  attack: 1
+  expPrefab: {fileID: 3647111523073591228, guid: 15c1dff924276384aa1196ce4baa38b6, type: 3}
 --- !u!1001 &5458777693431212929
 PrefabInstance:
   m_ObjectHideFlags: 0

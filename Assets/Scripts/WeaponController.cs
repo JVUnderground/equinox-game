@@ -12,6 +12,8 @@ public class WeaponController : MonoBehaviour
 {
 
     public ProjectileLaser ammunition;
+    public float fireRate = 3f;
+    private float nextFireTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,8 @@ public class WeaponController : MonoBehaviour
         Vector3 origin = transform.position;
         Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 0f));
 
-        bool isFiring = Input.GetMouseButtonDown((int) Mouse.LeftClick);
-        if (isFiring) {
+        if (Time.time > nextFireTime) {
+            nextFireTime += 1/fireRate;
             Shoot(origin, target);
         }
     }
