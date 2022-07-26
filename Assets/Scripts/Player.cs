@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IHasHealth, IDamageable
 {
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
     }
 
     void kill() {
-        // Destroy(gameObject);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     public void Damage(float amount) {
         health -= amount;
