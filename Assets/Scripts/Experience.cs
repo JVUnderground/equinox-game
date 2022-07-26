@@ -10,13 +10,16 @@ public class Experience : MonoBehaviour {
     float bounceTime = float.PositiveInfinity;
     bool bounced = false;
     bool isClaimed = false;
+    float destroyAt = float.PositiveInfinity;
     GameObject target;
     CircleCollider2D _collider;
     Rigidbody2D rb;
+    AudioSource source;
 
     void Start() {
         _collider = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        source = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -35,18 +38,30 @@ public class Experience : MonoBehaviour {
                 rb.velocity = 3 * force;
             }   
         }
+        if (destroyAt < float.PositiveInfinity) {
+            transform.position = target.transform.position;
+        }
+        if (Time.time > destroyAt) {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (!isClaimed && other.tag == "Player") {
             isClaimed = true;
             target = other.gameObject;
-            _collider.radius = 0.05f;
+            _collider.radius = 0.01f;
             bounceTime = Time.time + bounceDuration;
         } else if (isClaimed && other.tag == "Player") {
-            Player player = other.gameObject.GetComponent<Player>();
-            player.AddExperience(10);
-            Destroy(gameObject);
+            GetGathered();
         }
+    }
+
+    void GetGathered() {
+        Player player = target.GetComponent<Player>();
+        player.AddExperience(10);
+        source.pitch = Random.Range(0.5f, 1.5f);
+        destroyAt = Time.time + source.clip.length;
+        source.Play();
     }
 }
