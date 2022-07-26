@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammunition: {fileID: 1175128852257664690, guid: 274d7cf1cf76a2a469ac71ec83f57348, type: 3}
+  fireRate: 3
 --- !u!1 &8906023259801715259
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +209,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -332571675
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
+  experience: 0
   health: 10
   maxHealth: 10
 --- !u!58 &831383973438605575
