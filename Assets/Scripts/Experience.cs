@@ -19,8 +19,11 @@ public class Experience : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (isClaimed && target != null) {
+        if (isClaimed && target != null && destroyAt == float.PositiveInfinity) {
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        }
+        if (destroyAt < float.PositiveInfinity) {
+            transform.position = target.transform.position;
         }
         if (Time.time > destroyAt) {
             Destroy(gameObject);
@@ -31,7 +34,7 @@ public class Experience : MonoBehaviour {
         if (!isClaimed && other.tag == "Player") {
             isClaimed = true;
             target = other.gameObject;
-            _collider.radius = 0.05f;
+            _collider.radius = 0.01f;
         } else if (isClaimed && other.tag == "Player") {
             GetGathered();
         }

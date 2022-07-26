@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 8906023259801715236}
   - component: {fileID: 8906023259801715238}
   - component: {fileID: -4761032715981703817}
-  - component: {fileID: 831383973438605575}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -289,22 +288,6 @@ MonoBehaviour:
   experience: 0
   health: 10
   maxHealth: 10
---- !u!58 &831383973438605575
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8906023259801715259}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!1 &8906023259850633672
 GameObject:
   m_ObjectHideFlags: 0
