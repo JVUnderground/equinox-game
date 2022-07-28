@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour {
 
     public GameObject enemyPrefab;
-    public float period = 1.0f;
+    public float period = 3.0f;
+    public int maxEnemies = 50;
 
     GameObject player;
     float nextActionTime = 0.0f;
+    int enemiesPerLevel = 2;
 
     Vector3 randomVector() {
 
@@ -57,8 +59,15 @@ public class EnemyManager : MonoBehaviour {
     void Update () {
         if (player && Time.time > nextActionTime) {
             nextActionTime += period;
-            GameObject spawnedEnemy = Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
-            spawnedEnemy.GetComponent<Enemy>().setTarget(player);
+            int currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").GetLength(0);
+            int playerLevel = player.GetComponent<Player>().Level();
+            int enemiesToSpawn = enemiesPerLevel * (playerLevel + 1);
+            enemiesToSpawn = Mathf.Min(enemiesToSpawn, maxEnemies - currentEnemyCount);
+
+            for (int i = 0; i < enemiesToSpawn; i++) {
+                GameObject spawnedEnemy = Instantiate(enemyPrefab, randomVector(), Quaternion.identity);
+                spawnedEnemy.GetComponent<Enemy>().setTarget(player);
+            }
         }
         else if (player == null) {
             player = GameObject.FindGameObjectWithTag("Player");

@@ -6,7 +6,7 @@ using TMPro;
 public class LevelingSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int maxOptions = 1;
+    public int maxOptions = 3;
     public GameObject optionPrefab;
     GameManager gameManager;
 
@@ -54,7 +54,7 @@ public class LevelingSystem : MonoBehaviour
             };
         }
 
-        if (_maxOptions == 0) {
+        if (_maxOptions < maxOptions) {
             InstantiateDefaultOption();
         }
     }
@@ -70,14 +70,14 @@ public class LevelingSystem : MonoBehaviour
     void InstantiateDefaultOption() {
         GameObject option = Instantiate(optionPrefab, gameObject.transform);
         TextMeshProUGUI[] labels = option.GetComponentsInChildren<TextMeshProUGUI>();
-        LevelDescription healPlayer = new LevelDescription("Heal", "Heal for 30HP");
+        LevelDescription healPlayer = new LevelDescription("Heal", "Heal for 5HP");
         PopulateOptionLabels(option, healPlayer);
 
         LevelOption levelOption = option.GetComponent<LevelOption>();
         levelOption.onSelect = () => {
             Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             float currentHealth = player.Health();
-            player.Health(currentHealth + 30);
+            player.Health(currentHealth + 5);
             gameManager.OnOptionSelected();
         };
 

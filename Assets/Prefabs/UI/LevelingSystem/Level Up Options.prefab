@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 580705085512384521}
   - component: {fileID: 580705085512384520}
   - component: {fileID: 580705085512384523}
-  - component: {fileID: 4517243241404277506}
   m_Layer: 5
   m_Name: Level Up Options
   m_TagString: Untagged
@@ -102,20 +101,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4517243241404277506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580705085512384522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90a71af4079b74459c14be92381e62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOptions: 1
-  optionPrefab: {fileID: 7075702614986752525, guid: 07fc0a0c670a24f4a89d7ca8dc82263a, type: 3}
 --- !u!1 &580705085876303966
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +112,8 @@ GameObject:
   - component: {fileID: 580705085876303967}
   - component: {fileID: 580705085876303965}
   - component: {fileID: 580705085876303964}
+  - component: {fileID: 8962592149051704848}
+  - component: {fileID: 1068522516947320287}
   m_Layer: 5
   m_Name: Dashboard
   m_TagString: Untagged
@@ -192,3 +179,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8962592149051704848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580705085876303966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a71af4079b74459c14be92381e62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOptions: 1
+  optionPrefab: {fileID: 7075702614986752525, guid: 07fc0a0c670a24f4a89d7ca8dc82263a, type: 3}
+--- !u!114 &1068522516947320287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580705085876303966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 50
+    m_Right: 0
+    m_Top: 50
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 200, y: 200}
+  m_Spacing: {x: 50, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
