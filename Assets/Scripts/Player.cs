@@ -10,11 +10,12 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
     public int experience = 0;
     public float health;
     public float maxHealth;
+    int level = 0;
+    float nextLevelRequirement = 1000f;
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
@@ -56,5 +57,24 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
 
     public void AddExperience(int amount) {
         experience += amount;
+        if (experience >= nextLevelRequirement) {
+            level += 1;
+            nextLevelRequirement *= 2;
+            
+            foreach (ILevelUpListener listener in GetLevelUpListeners()) {
+                listener.OnPlayerLevelUp(level);
+            }
+        }
+    }
+
+    List<ILevelUpListener> GetLevelUpListeners() {
+        List<ILevelUpListener> listeners = new List<ILevelUpListener>();
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        foreach (GameObject obj in allObjects) {
+            ILevelUpListener listener = (ILevelUpListener) obj.GetComponent(typeof(ILevelUpListener));
+            if (listener != null) listeners.Add(listener);
+        }
+
+        return listeners;
     }
 }

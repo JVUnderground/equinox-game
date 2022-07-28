@@ -8,12 +8,15 @@ public enum Mouse : int {
     RightClick = 1,
     MiddleClick = 2
 }
-public class WeaponController : MonoBehaviour
+public class WeaponController : MonoBehaviour, IHasLevels
 {
 
     public ProjectileLaser ammunition;
     public float fireRate = 3f;
     private float nextFireTime = 0f;
+    int level = 0;
+    int maxLevel = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +48,22 @@ public class WeaponController : MonoBehaviour
         if (other.gameObject.tag == "Enemy") {
             
         }
+    }
+
+    public bool IsMaxLevel() {
+        return level >= maxLevel;
+    }
+
+    public LevelDescription GetNextLevelDescription() {
+        return new LevelDescription("Faster Reload", "Increases weapon fire rate by 50%");
+    }
+
+    public int Level() {
+        return level;
+    }
+
+    public void LevelUp() {
+        level += 1;
+        fireRate *= 1.5f;
     }
 }
