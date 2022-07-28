@@ -199,12 +199,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973605524}
-  - component: {fileID: 973605523}
   - component: {fileID: 973605522}
   - component: {fileID: 973605525}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Game Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,23 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947cba1421c74ae498a1e4684f04d506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
   playerPrefab: {fileID: 8906023259801715259, guid: 4e6a6673ab4d3d24f82c7b8641c93304, type: 3}
   enemySpawnerPrefab: {fileID: 2046556637134592106, guid: 7f47609be71ec264fb201c4b5fed3f37, type: 3}
---- !u!114 &973605523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973605521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
+  levelingDashboardPrefab: {fileID: 580705085512384522, guid: bad4d04f6407d3f4aa0987f9ba03d552, type: 3}
 --- !u!4 &973605524
 Transform:
   m_ObjectHideFlags: 0
