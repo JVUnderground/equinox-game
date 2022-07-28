@@ -45,10 +45,7 @@ public class LevelingSystem : MonoBehaviour
 
             TextMeshProUGUI[] labels = option.GetComponentsInChildren<TextMeshProUGUI>();
             LevelDescription level = randomLevelUpOption.GetNextLevelDescription();
-            foreach (TextMeshProUGUI label in labels) {
-                if (label.name == "Title") label.text = level.title;
-                if (label.name == "Description") label.text = level.description;
-            }
+            PopulateOptionLabels(option, level);
 
             LevelOption levelOption = option.GetComponent<LevelOption>();
             levelOption.onSelect = () => {
@@ -56,5 +53,33 @@ public class LevelingSystem : MonoBehaviour
                 gameManager.OnOptionSelected();
             };
         }
+
+        if (_maxOptions == 0) {
+            InstantiateDefaultOption();
+        }
+    }
+
+    void PopulateOptionLabels(GameObject option, LevelDescription level) {
+        TextMeshProUGUI[] labels = option.GetComponentsInChildren<TextMeshProUGUI>();
+        foreach (TextMeshProUGUI label in labels) {
+            if (label.name == "Title") label.text = level.title;
+            if (label.name == "Description") label.text = level.description;
+        }
+    }
+
+    void InstantiateDefaultOption() {
+        GameObject option = Instantiate(optionPrefab, gameObject.transform);
+        TextMeshProUGUI[] labels = option.GetComponentsInChildren<TextMeshProUGUI>();
+        LevelDescription healPlayer = new LevelDescription("Heal", "Heal for 30HP");
+        PopulateOptionLabels(option, healPlayer);
+
+        LevelOption levelOption = option.GetComponent<LevelOption>();
+        levelOption.onSelect = () => {
+            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            float currentHealth = player.Health();
+            player.Health(currentHealth + 30);
+            gameManager.OnOptionSelected();
+        };
+
     }
 }

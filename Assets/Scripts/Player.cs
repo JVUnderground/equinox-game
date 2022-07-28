@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
     }
 
     public void Health(float health) {
-        this.health = health;
+        this.health = Mathf.Min(health, maxHealth);
     }
 
     public float MaxHealth() {
