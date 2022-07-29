@@ -16,6 +16,8 @@ public class WeaponController : MonoBehaviour, IHasLevels
     private float nextFireTime = 0f;
     int level = 0;
     int maxLevel = 3;
+    float vX = 0;
+    float vY = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +28,16 @@ public class WeaponController : MonoBehaviour, IHasLevels
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.mousePosition.x;
-        float mouseY = Input.mousePosition.y;
-
-        Vector3 origin = transform.position;
-        Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 0f));
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        if (x != 0 || y != 0) {
+            vX = x;
+            vY = y;
+        }
 
         if (Time.time > nextFireTime) {
+            Vector3 origin = transform.position;
+            Vector3 target = transform.position + new Vector3(vX, vY, 0f);
             nextFireTime += 1/fireRate;
             Shoot(origin, target);
         }
