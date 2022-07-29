@@ -77,4 +77,8 @@ public class Player : MonoBehaviour, IHasHealth, IDamageable
 
         return listeners;
     }
+
+    public int Level() {
+        return level;
+    }
 }

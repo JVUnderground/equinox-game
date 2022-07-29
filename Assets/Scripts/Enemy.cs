@@ -11,9 +11,13 @@ public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
     public GameObject expPrefab;
     private float health;
     private Transform target;
+    EnemyScore score;
+
 
     void Start() {
         health = maxHealth;
+        score = GameObject.FindGameObjectWithTag("HUD").GetComponentInChildren<EnemyScore>();
+        print(score);
     }
 
 
@@ -30,6 +34,9 @@ public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
         health -= damage;
         if (health <= 0) {
             Instantiate(expPrefab, transform.position, Quaternion.identity);
+            if (score != null) {
+                score.RegisterKill();
+            }
             Destroy(gameObject);
         }
     }
