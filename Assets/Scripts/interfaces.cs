@@ -23,6 +23,10 @@ public interface IHasLevels {
     public void LevelUp();
 }
 
+public interface IStorable {
+    public Sprite Icon();
+}
+
 public class LevelDescription {
     public string title;
     public string description;
