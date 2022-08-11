@@ -13,6 +13,7 @@ public class WeaponController : MonoBehaviour, IHasLevels
 
     public ProjectileLaser ammunition;
     public float fireRate = 3f;
+    public bool reverseDirection = false;
     private float nextFireTime = 0f;
     int level = 0;
     int maxLevel = 3;
@@ -37,7 +38,14 @@ public class WeaponController : MonoBehaviour, IHasLevels
 
         if (Time.time > nextFireTime) {
             Vector3 origin = transform.position;
-            Vector3 target = transform.position + new Vector3(vX, vY, 0f);
+            Vector3 target;
+
+            if (reverseDirection) {
+                target = transform.position - new Vector3(vX, vY, 0f);
+            } else {
+                target = transform.position + new Vector3(vX, vY, 0f);
+            }
+            
             nextFireTime += 1/fireRate;
             Shoot(origin, target);
         }

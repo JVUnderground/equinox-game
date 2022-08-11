@@ -59,7 +59,7 @@ public class Experience : MonoBehaviour {
 
     void GetGathered() {
         Player player = target.GetComponent<Player>();
-        player.AddExperience(1000);
+        player.AddExperience(200);
         source.pitch = Random.Range(0.5f, 1.5f);
         destroyAt = Time.time + source.clip.length;
         source.Play();

@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
 
     Vector3 randomVector() {
 
-        int direction = Random.Range(1, 4);
+        int direction = Random.Range(1, 5);
         float xMax=0, xMin=0, yMax=0, yMin=0;
 
         if (direction == 1) {

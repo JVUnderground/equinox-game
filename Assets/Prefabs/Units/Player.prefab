@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammunition: {fileID: 1175128852257664690, guid: 274d7cf1cf76a2a469ac71ec83f57348, type: 3}
   fireRate: 3
+  reverseDirection: 1
 --- !u!1 &8906023259801715259
 GameObject:
   m_ObjectHideFlags: 0

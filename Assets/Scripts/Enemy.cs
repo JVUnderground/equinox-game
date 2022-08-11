@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
 
+    float bossChance = 0.1f;
     public float maxHealth = 30f;
     public float moveSpeed = 1f;
     public float attack = 1f;
@@ -12,12 +13,22 @@ public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
     private float health;
     private Transform target;
     EnemyScore score;
+    static int bossCount = 0;
+    bool isBoss = false;
 
 
     void Start() {
+        if (bossCount < 1 && Random.Range(0f, 1f) < bossChance) {
+            // This is a boss.
+            bossCount++;
+            gameObject.transform.localScale = new Vector3(3,3,3);
+            gameObject.GetComponent<Rigidbody2D>().mass = 10;
+            maxHealth = 1000f;
+            moveSpeed = 1.3f;
+            isBoss = true;
+        }
         health = maxHealth;
         score = GameObject.FindGameObjectWithTag("HUD").GetComponentInChildren<EnemyScore>();
-        print(score);
     }
 
 
@@ -60,6 +71,7 @@ public class Enemy : MonoBehaviour, IHasHealth, IDamageable {
             foreach (IKillResponder responder in GetAllKillResponders()) {
                 responder.OnKill(this);
             }
+            if (isBoss) bossCount--;
             Destroy(gameObject);
         }
     }
