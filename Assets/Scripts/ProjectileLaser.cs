@@ -27,7 +27,7 @@ public class ProjectileLaser : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.damage(bulletSpeed);
+            enemy.Damage(bulletSpeed);
 
             Destroy(gameObject);
         }
