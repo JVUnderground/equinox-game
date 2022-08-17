@@ -199,8 +199,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973605524}
-  - component: {fileID: 973605522}
   - component: {fileID: 973605525}
+  - component: {fileID: 973605522}
+  - component: {fileID: 973605526}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Game Manager
@@ -232,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973605521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.092917, y: -0.25762334, z: -0.025570825}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,6 +336,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &973605526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973605521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dbda2b99823ef47b394cc9004b9afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 8
+  rows: 10
+  wallcount:
+    minimum: 3
+    maximum: 18
+  exit: {fileID: 3285679597257442577, guid: 43fd43067c3671547bf4b7eb46ec1e24, type: 3}
+  floorTiles:
+  - {fileID: 12796776011192492, guid: 693ed426ad9f09e4eb1ee283283b43f0, type: 3}
+  - {fileID: 6905866062376524493, guid: 100d9b35f0e1a124893003476cd077af, type: 3}
+  - {fileID: 3033660357393786531, guid: 5397cdbb72aa99e45a6b5b11829ca184, type: 3}
+  wallTiles:
+  - {fileID: 4353847937868196616, guid: 4cfcbe961517fdb46b1e3c4642abe33f, type: 3}
+  outerWallTiles:
+  - {fileID: 1103165853308832471, guid: 0c84c0d75c211c64e90875a919a82ad2, type: 3}
 --- !u!1001 &1188069826
 PrefabInstance:
   m_ObjectHideFlags: 0
