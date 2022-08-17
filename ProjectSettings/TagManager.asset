@@ -45,12 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 3535099299
+    locked: 0
+  - name: Items
+    uniqueID: 68347689
+    locked: 0
   - name: Projectiles
     uniqueID: 571119515
     locked: 0
   - name: Units
     uniqueID: 3962395621
     locked: 0
-  - name: Floor
-    uniqueID: 3535099299
+  - name: UI
+    uniqueID: 1222227201
     locked: 0
