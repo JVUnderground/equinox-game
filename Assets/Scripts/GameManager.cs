@@ -9,6 +9,13 @@ public class GameManager : MonoBehaviour, ILevelUpListener
     public GameObject enemySpawnerPrefab;
     public GameObject levelingDashboardPrefab;
     GameObject levelingDashboard;
+    BoardManager boardManager;
+
+    void Awake()
+    {
+        boardManager = GetComponent<BoardManager>();
+        boardManager.SetupScene(3);
+    }
 
     // Start is called before the first frame update
     void Start()
