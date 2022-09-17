@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  playerPrefab: {fileID: 8906023259801715259, guid: 4e6a6673ab4d3d24f82c7b8641c93304, type: 3}
+  playerPrefab: {fileID: 7821127229083396579, guid: a14ce6b7763628343b6d1ecfdf00dc65, type: 3}
   enemySpawnerPrefab: {fileID: 2046556637134592106, guid: 7f47609be71ec264fb201c4b5fed3f37, type: 3}
   levelingDashboardPrefab: {fileID: 580705085512384522, guid: bad4d04f6407d3f4aa0987f9ba03d552, type: 3}
 --- !u!4 &973605524
@@ -348,11 +348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dbda2b99823ef47b394cc9004b9afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 8
+  columns: 10
   rows: 10
   wallcount:
-    minimum: 3
-    maximum: 18
+    minimum: 0
+    maximum: 0
   exit: {fileID: 3285679597257442577, guid: 43fd43067c3671547bf4b7eb46ec1e24, type: 3}
   floorTiles:
   - {fileID: 12796776011192492, guid: 693ed426ad9f09e4eb1ee283283b43f0, type: 3}

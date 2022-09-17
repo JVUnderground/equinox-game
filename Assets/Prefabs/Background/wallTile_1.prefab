@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8648487743442626152}
   - component: {fileID: 133602821108173621}
   - component: {fileID: 5225386918484179260}
+  - component: {fileID: -954195067814006793}
   m_Layer: 6
   m_Name: wallTile_1
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -759867997
-  m_SortingLayer: 1
+  m_SortingLayerID: 1377922089
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9322b24c4c76b014da844f1f1180742f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-954195067814006793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353847937868196616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3d652e03a3a424c9adf3be6789d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgSprite: {fileID: 21300000, guid: 9322b24c4c76b014da844f1f1180742f, type: 3}
+  hp: 4
